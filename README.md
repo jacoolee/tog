@@ -207,3 +207,10 @@ Can be used for managing/tracking tasks and things changing via time.
 - [markdown - https://daringfireball.net/projects/markdown/](https://daringfireball.net/projects/markdown/)
 - [markdown guide - https://www.markdownguide.org](https://www.markdownguide.org/)
 - [org-mode - https://orgmode.org](https://orgmode.org)
+
+## 8. Copyright
+
+All copyrights belong to tlog creator jacoolee.
+
+
+
