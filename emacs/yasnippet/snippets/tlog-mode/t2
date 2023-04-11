@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: todo2
+# key: =
+# --
+= `(format-time-string "%y%m%d%H%M%S")` $0

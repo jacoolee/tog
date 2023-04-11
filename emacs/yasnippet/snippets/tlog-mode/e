@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: e
+# key: e
+# --
+@end:`(format-time-string "%y%m%d%H%M%S")`$0

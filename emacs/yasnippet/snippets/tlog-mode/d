@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: done
+# key: d
+# --
+. `(format-time-string "%y%m%d%H%M%S")` $0
