@@ -22,6 +22,10 @@ We, human beings, tend to lost clue on things as time passing, and prefer starti
 
     Text is prefered due to simplicity and zero-effort on transporting, and text is naturally tool-independent.
 
+- **Goal-aimed**
+
+    Tasks without goals wouldn't make that much senses, aligning tasks with a goal would make a difference.
+
 ## 3. Data Structure
 
 A tlog consists of several date-stampped blocks with each block consisting of a date-stamp and a list of tasks with each task consisting of a task status, a task id and a task content.
