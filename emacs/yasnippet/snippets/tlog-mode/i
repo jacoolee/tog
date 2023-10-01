@@ -2,4 +2,4 @@
 # name: doing
 # key: i
 # --
-+ `(format-time-string "%y%m%d%H%M%S")` $0
+: `(format-time-string "%y%m%d%H%M%S")` $0
