@@ -38,9 +38,9 @@ A simple tlog content would be like:
 
 23-02-25
 .= 230225081528 write a doc for tlog
-.+ 230225125800 @230225081528 writing doc @output:./tlog.md @finishedAt:230225150000
+.: 230225125800 @230225081528 writing doc @output:./tlog.md @finishedAt:230225150000
 =  230225160000 go out and have some fun
-+  230225161200 @230225160000 yeah
+:  230225161200 @230225160000 yeah
 ```
 
 ## 4. Conceptions
@@ -64,7 +64,7 @@ There are two types of status:
 1. Non-terminal status
 
 - `=` - TODO
-- `+` - DOING, need more work/energy.
+- `:` - DOING, meaning focusing current task now
 
 2. Terminal status
 
@@ -77,13 +77,13 @@ Example:
 
 ```
 .= ID1 some task content
-.+ ID2 @ID1 task content with progress
-.+ ID3 @ID1 more progress on the initial task
+.: ID2 @ID1 task content with progress
+.: ID3 @ID1 more progress on the initial task
 . ID4 @ID1 end
 
 x= ID5 some task content
-x+ ID6 @ID5 task content with progress
-x+ ID7 @ID5 more progress on the initial task
+x: ID6 @ID5 task content with progress
+x: ID7 @ID5 more progress on the initial task
 x ID8 @ID5 end
 ```
 
@@ -107,8 +107,8 @@ For Example for following tasks,
 
 ```
 .= ID1 some task content
-.+ ID2 @ID1 task content with progress
-.+ ID3 @ID1 more progress on the initial task
+.: ID2 @ID1 task content with progress
+.: ID3 @ID1 more progress on the initial task
 . ID4 @ID1 temp end
 ```
 
@@ -116,9 +116,9 @@ The changing log can be visually represented as (on time-axis):
 
 ```
 =ID1
-=ID1 --> +ID2                        # ID1 becomes a goal task
-=ID1 --> +ID2 --> +ID3
-.=ID1 --> .+ID2 --> .+ID3 --> .ID4   # sync terminal status, after status synced,
+=ID1 --> :ID2                        # ID1 becomes a goal task
+=ID1 --> :ID2 --> :ID3
+.=ID1 --> .:ID2 --> .:ID3 --> .ID4   # sync terminal status, after status synced,
                                      # all status of all preceding tasks in follow-up
                                      # link become terminal.
 
@@ -129,10 +129,10 @@ And for following tasks,
 
 ```
 .= ID1 some task content
-.+ ID2 @ID1 step 1 to process
-.+ ID3 @ID1 step 2 to process
+.: ID2 @ID1 step 1 to process
+.: ID3 @ID1 step 2 to process
 . ID4 @ID2 temp end
-.+ ID5 @ID3 working on
+.: ID5 @ID3 working on
 . ID6 @ID3 after some work, done here
 . ID7 @ID1 explictly end initial task
 ```
@@ -142,11 +142,11 @@ The changing log can be visually represented as (on time-axis):
 ```
 =ID1
 
-=ID1 --> +ID2                         # ID1 becomes a goal task
+=ID1 --> :ID2                         # ID1 becomes a goal task
 
-=ID1 --> +ID2 --> +ID3
+=ID1 --> :ID2 --> :ID3
 
-=ID1 --> .+ID2 --> +ID3
+=ID1 --> .:ID2 --> :ID3
            \
             ------------> .ID4        # ID2 becomes a goal task.
                                       # After terminal status synced,
@@ -156,23 +156,23 @@ The changing log can be visually represented as (on time-axis):
                                       # status of ID1 stays coz it's not ID1
                                       # but ID2 the goal task of the link.
 
-=ID1 --> .+ID2 --> +ID3
+=ID1 --> .:ID2 --> :ID3
            \         \
             ----------\-> .ID4
                        \
-                        -------> +ID5 # ID3 becomes a goal task
+                        -------> :ID5 # ID3 becomes a goal task
 
-=ID1 --> .+ID2 --> .+ID3
+=ID1 --> .:ID2 --> .:ID3
            \         \
             ----------\-> .ID4
                        \
-                        -------> .+ID5 ------> .ID6        # sync terminal status
+                        -------> .:ID5 ------> .ID6        # sync terminal status
 
-.ID1 --> .+ID2 --> .+ID3 ---------------------------> .ID7 # sync terminal status
+.ID1 --> .:ID2 --> .:ID3 ---------------------------> .ID7 # sync terminal status
             \         \
              ----------\-> .ID4
                         \
-                         -------> .+ID5 ------> .ID6
+                         -------> .:ID5 ------> .ID6
 
 Past --------------------------------------------------------------------> Future
 ```

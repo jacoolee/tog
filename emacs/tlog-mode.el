@@ -66,7 +66,7 @@
 
   ;; highlights
   (font-lock-add-keywords nil '(("^=" . 'tlog-face-status-todo)))
-  (font-lock-add-keywords nil '(("^+" . 'tlog-face-status-doing)))
+  (font-lock-add-keywords nil '(("^:" . 'tlog-face-status-doing)))
   (font-lock-add-keywords nil '(("^x" . 'tlog-face-status-deprecated)))
   (font-lock-add-keywords nil '(("^\\.[=+]? [0-9]+" . 'tlog-face-status-done)))
 
