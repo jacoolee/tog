@@ -40,7 +40,7 @@
      )))
 
 (defface tlog-face-status-todo
-  '((t (:foreground "yellow" :weight bold))) "")
+  '((t (:foreground "orange" :weight bold))) "")
 
 (defface tlog-face-status-doing
   '((t (:foreground "green" :weight bold))) "")
@@ -49,16 +49,19 @@
   '((t (:foreground "#aaaaaa"))) "")
 
 (defface tlog-face-status-deprecated
-  '((t (:foreground "red"))) "")
+  '((t (:foreground "gray"))) "")
 
 (defface tlog-face-task-reference
-  '((t (:foreground "orange"))) "")
+  '((t (:foreground "purple3"))) "")
 
 (defface tlog-face-attribute
   '((t (:foreground "slategrey"))) "")
 
 (defface tlog-face-tag
   '((t (:foreground "darkseagreen"))) "")
+
+(defface tlog-face-emphase
+  '((t (:foreground "red": :weight bold))) "")
 
 (define-derived-mode tlog-mode fundamental-mode "tlog"
   "tlog mode is a major mode for editing tlog files, for more about tlog, please checkout https://github.com/jacoolee/tlog."
@@ -67,12 +70,14 @@
   ;; highlights
   (font-lock-add-keywords nil '(("^=" . 'tlog-face-status-todo)))
   (font-lock-add-keywords nil '(("^:" . 'tlog-face-status-doing)))
-  (font-lock-add-keywords nil '(("^x" . 'tlog-face-status-deprecated)))
-  (font-lock-add-keywords nil '(("^\\.[=+]? [0-9]+" . 'tlog-face-status-done)))
+  (font-lock-add-keywords nil '(("^\\x[=:]? [0-9]+" . 'tlog-face-status-deprecated)))
+  (font-lock-add-keywords nil '(("^\\.[=:]? [0-9]+" . 'tlog-face-status-done)))
 
   (font-lock-add-keywords nil '(("@[0-9]+" . 'tlog-face-task-reference)))
   (font-lock-add-keywords nil '(("@[-_A-z0-9]+:[^\s\n]+" . 'tlog-face-attribute)))
-  (font-lock-add-keywords nil '(("#[^ ]+" . 'tlog-face-tag)))
+  (font-lock-add-keywords nil '(("#[^\s\n]+" . 'tlog-face-tag)))
+  (font-lock-add-keywords nil '(("\\*\\*[^\\*]+\\*\\*" . 'tlog-face-emphase)))
+
   )
 
 (provide 'tlog-mode)
