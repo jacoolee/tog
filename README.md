@@ -214,7 +214,6 @@ Can be used for managing/tracking tasks and things changing via time.
 
 ## 8. Copyright
 
-All copyrights belong to tlog creator jacoolee.
-
+Refer to [LICENSE](./LICENSE) for license.
 
 
