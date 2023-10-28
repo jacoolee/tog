@@ -1,4 +1,6 @@
-# A Time-Based (Tracking) Log
+# A Time-Based, Goal-Aimed Tracking Log
+
+In short, .tog is a time-based, goal-aimed tracking methodology to log things. tog is short for "to goal".
 
 ## 1. Background
 
@@ -8,7 +10,7 @@ We, human beings, tend to lost clue on things as time passing, and prefer starti
 
 - **Simplicity**
 
-    Nothing compares to simplicity coz human brain is precious and pretending to stuck on complex things, and favoring forgetting things.
+    Nothing compares to simplicity coz human brain is precious and tending to stuck on complex things, and favoring forgetting things.
 
 - **Goal-aimed**
 
