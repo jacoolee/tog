@@ -1,4 +1,4 @@
-# A Time-Based Tracking Log
+# A Time-Based (Tracking) Log
 
 ## 1. Background
 
@@ -9,6 +9,10 @@ We, human beings, tend to lost clue on things as time passing, and prefer starti
 - **Simplicity**
 
     Nothing compares to simplicity coz human brain is precious and pretending to stuck on complex things, and favoring forgetting things.
+
+- **Goal-aimed**
+
+    Tasks without goals wouldn't make that much senses, aligning tasks with a goal would make a difference.
 
 - **Time-based**
 
@@ -22,23 +26,19 @@ We, human beings, tend to lost clue on things as time passing, and prefer starti
 
     Text is prefered due to simplicity and zero-effort on transporting, and text is naturally tool-independent.
 
-- **Goal-aimed**
-
-    Tasks without goals wouldn't make that much senses, aligning tasks with a goal would make a difference.
-
 ## 3. Data Structure
 
-A tlog consists of several date-stampped blocks with each block consisting of a date-stamp and a list of tasks with each task consisting of a task status, a task id and a task content.
+A tog consists of several date-stampped blocks with each block consisting of a date-stamp and a list of tasks with each task consisting of a task status, a task id and a task content.
 
-A simple tlog content would be like:
+A simple tog content would be like:
 
 ```
 23-02-24
 // ...
 
 23-02-25
-.= 230225081528 write a doc for tlog
-.: 230225125800 @230225081528 writing doc @output:./tlog.md @finishedAt:230225150000
+.= 230225081528 write a doc for tog
+.: 230225125800 @230225081528 writing doc @output:./tog.md @finishedAt:230225150000
 =  230225160000 go out and have some fun
 :  230225161200 @230225160000 yeah
 ```
@@ -46,7 +46,7 @@ A simple tlog content would be like:
 ## 4. Conceptions
 
 ### 4.1 Date-Stampped Block
-Date-Stamp Block is essential parts of tlog content, a block contains a Date-Stamp and a list of tasks.
+Date-Stamp Block is essential parts of tog content, a block contains a Date-Stamp and a list of tasks.
 
 ### 4.2 Date-Stamp
 Date-Stamp represents the date of the Date-Stamp Block and always be put head of the block. For simplicity, Date-Stamp can be formed as `"%Y-%m-%d"`, eg: `23-02-25`.

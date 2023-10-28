@@ -1,10 +1,10 @@
-;;; tlog-mode.el --- mode for editing .tlog file.
+;;; tog-mode.el --- mode for editing .tog file.
 ;;
 ;; Copyright (C) 2023 jacoolee
 ;; Author: jacoolee
 ;; Version: 0.1
 ;; Keywords: convenience tools
-;; URL: https://github.com/jacoolee/tlog
+;; URL: https://github.com/jacoolee/tog
 ;; Compatibility: GNU Emacs 22.x, GNU Emacs 23.x
 ;;
 ;; This file is NOT part of GNU Emacs.
@@ -28,56 +28,57 @@
 ;;
 ;; Add the following to your .emacs file:
 ;; (add-to-list 'load-path "PATH_CONTAINS_THIS_FILE")
-;; (require 'tlog-mode)
-;; (add-to-list 'auto-mode-alist '(".tlog" . tlog-mode))
+;; (require 'tog-mode)
+;; (add-to-list 'auto-mode-alist '(".tog" . tog-mode))
 ;;
 ;;; Code:
 
-(defvar tlog-font-lock-defaults
+(defvar tog-font-lock-defaults
   `((
      ;; stuff between double quotes
      ("\"\\.\\*\\?" . font-lock-string-face)
      )))
 
-(defface tlog-face-status-todo
+(defface tog-face-status-todo
   '((t (:foreground "orange" :weight bold))) "")
 
-(defface tlog-face-status-doing
+(defface tog-face-status-doing
   '((t (:foreground "green" :weight bold))) "")
 
-(defface tlog-face-status-done
+(defface tog-face-status-done
   '((t (:foreground "#aaaaaa"))) "")
 
-(defface tlog-face-status-deprecated
+(defface tog-face-status-deprecated
   '((t (:foreground "gray"))) "")
 
-(defface tlog-face-task-reference
+(defface tog-face-task-reference
   '((t (:foreground "purple3"))) "")
 
-(defface tlog-face-attribute
+(defface tog-face-attribute
   '((t (:foreground "slategrey"))) "")
 
-(defface tlog-face-tag
+(defface tog-face-tag
   '((t (:foreground "darkseagreen"))) "")
 
-(defface tlog-face-emphase
+(defface tog-face-emphase
   '((t (:foreground "red": :weight bold))) "")
 
-(define-derived-mode tlog-mode fundamental-mode "tlog"
-  "tlog mode is a major mode for editing tlog files, for more about tlog, please checkout https://github.com/jacoolee/tlog."
-  (setq font-lock-defaults tlog-font-lock-defaults)
+(define-derived-mode tog-mode fundamental-mode "tog"
+  "tog mode is a major mode for editing tog files, for more about tog, please checkout https://github.com/jacoolee/tog."
+  (setq font-lock-defaults tog-font-lock-defaults)
 
   ;; highlights
-  (font-lock-add-keywords nil '(("^=" . 'tlog-face-status-todo)))
-  (font-lock-add-keywords nil '(("^:" . 'tlog-face-status-doing)))
-  (font-lock-add-keywords nil '(("^\\x[=:]? [0-9]+" . 'tlog-face-status-deprecated)))
-  (font-lock-add-keywords nil '(("^\\.[=:]? [0-9]+" . 'tlog-face-status-done)))
+  (font-lock-add-keywords nil '(("^=" . 'tog-face-status-todo)))
+  (font-lock-add-keywords nil '(("^:" . 'tog-face-status-doing)))
+  (font-lock-add-keywords nil '(("^\\x[=:]? [0-9]+" . 'tog-face-status-deprecated)))
+  (font-lock-add-keywords nil '(("^\\.[=:]? [0-9]+" . 'tog-face-status-done)))
 
-  (font-lock-add-keywords nil '(("@[0-9]+" . 'tlog-face-task-reference)))
-  (font-lock-add-keywords nil '(("@[-_A-z0-9]+:[^\s\n]+" . 'tlog-face-attribute)))
-  (font-lock-add-keywords nil '(("#[^\s\n]+" . 'tlog-face-tag)))
-  (font-lock-add-keywords nil '(("\\*\\*[^\\*]+\\*\\*" . 'tlog-face-emphase)))
+  (font-lock-add-keywords nil '(("@[0-9]+" . 'tog-face-task-reference)))
+  (font-lock-add-keywords nil '(("@[-_A-z0-9]+:[^\s\n]+" . 'tog-face-attribute)))
+  (font-lock-add-keywords nil '(("@[-_A-z0-9]+:\"[^\s\n\"]+" . 'tog-face-attribute)))
+  (font-lock-add-keywords nil '(("#[^\s\n]+" . 'tog-face-tag)))
+  (font-lock-add-keywords nil '(("\\*\\*[^\\*]+\\*\\*" . 'tog-face-emphase)))
 
   )
 
-(provide 'tlog-mode)
+(provide 'tog-mode)
