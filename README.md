@@ -1,6 +1,8 @@
-# A time-based, goal-aimed tracking log
+# tog
 
-In short, .tog is a time-based, goal-aimed tracking methodology to log things. tog is short for "to goal".
+A simple time-based, goal-aimed tracking log.
+
+In short, tog is a time-based, goal-aimed tracking methodology to log things. tog is short for "to goal".
 
 ## 1. Background
 
