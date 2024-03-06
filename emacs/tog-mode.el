@@ -40,16 +40,16 @@
      )))
 
 (defface tog-face-status-todo
-  '((t (:foreground "orange" :weight bold))) "")
+  '((t (:foreground "orange" :weight normal))) "")
 
 (defface tog-face-status-doing
-  '((t (:foreground "green" :weight bold))) "")
+  '((t (:foreground "green" :weight normal))) "")
 
 (defface tog-face-status-done
-  '((t (:foreground "#aaaaaa"))) "")
+  '((t (:foreground "#aaaaaa" :weight normal))) "")
 
 (defface tog-face-status-deprecated
-  '((t (:foreground "gray"))) "")
+  '((t (:foreground "gray" :weight normal))) "")
 
 (defface tog-face-task-reference
   '((t (:foreground "purple3"))) "")
@@ -68,8 +68,8 @@
   (setq font-lock-defaults tog-font-lock-defaults)
 
   ;; highlights
-  (font-lock-add-keywords nil '(("^=" . 'tog-face-status-todo)))
-  (font-lock-add-keywords nil '(("^:" . 'tog-face-status-doing)))
+  (font-lock-add-keywords nil '(("^= [0-9]+" . 'tog-face-status-todo)))
+  (font-lock-add-keywords nil '(("^:=? [0-9]+" . 'tog-face-status-doing)))
   (font-lock-add-keywords nil '(("^\\x[=:]? [0-9]+" . 'tog-face-status-deprecated)))
   (font-lock-add-keywords nil '(("^\\.[=:]? [0-9]+" . 'tog-face-status-done)))
 
